@@ -101,13 +101,15 @@
       // number guessed by user
       var x = document.getElementById("guessField").value;
 
-      if (x > y) {
+      if (!x || isNaN(x)) {
+        alert("INVALID INPUT!");
+      } else if (x > y) {
         alert("YOU ARE HIGHER THAN EXPECTED");
       }
       else if (x < y) {
         alert("YOU ARE LOWER THAN EXPECTED")
       }
-      else {
+      else if (x === y) {
         alert("Try submitting. (づ￣ 3￣)づ");
       }
     }
