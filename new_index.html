@@ -82,7 +82,13 @@
 
       if (x == y) {
         alert("CONGRATULATIONS!!! YOU GUESSED IT RIGHT IN "
-          + guess + " GUESSES AND USING " + hint + " HINTS!");
+          + guess + " GUESSES AND USING " + hint + " HINTS! PLAY AGAIN!");
+        
+        // Reset the game
+        guess = 1;
+        hint = 0;
+        y = Math.floor(Math.random() * 10 + 1);
+        document.getElementById("guessField").value = "";
       }
       else {
         guess++;
