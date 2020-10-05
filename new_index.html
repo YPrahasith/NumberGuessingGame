@@ -1,119 +1,121 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <style>
-      body{
-        background-color: #C3C2D8;
-      }
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-      .card{
-        background-color: #F9D8D2;
-      }
+  <style>
+    body {
+      background-color: #C3C2D8;
+    }
 
-      .btn-primary{
-        background-color:#205565;
-        border-color: #205565;
-      }
+    .card {
+      background-color: #F9D8D2;
+    }
 
-      h1{
-        font-family:Tahoma;
-      }
+    .btn-primary {
+      background-color: #205565;
+      border-color: #205565;
+    }
 
-    </style>
+    h1 {
+      font-family: Tahoma;
+    }
+  </style>
 
-    <title>Number Guessing Game</title>
-  </head>
-  <body class="py-5">
-    <div class="container py-5">
-      <div class="card py-5">
-        <div class="card-body">
+  <title>Number Guessing Game</title>
+</head>
+
+<body class="py-5">
+  <div class="container py-5">
+    <div class="card py-5">
+      <div class="card-body">
 
 
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <h1 class="font-weight-bold">Guess The Number!</h1>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h1 class="font-weight-bold">Guess The Number!</h1>
 
-              <p class="my-3 mx-2">We have selected a random number between 1 - 10.<br>
+            <p class="my-3 mx-2">We have selected a random number between 1 - 10.<br>
               See if you can guess it!</p>
-            </div>
           </div>
+        </div>
 
-          <div class="row mt-2">
-            <div class="offset-md-3 col-md-6 ">
+        <div class="row mt-2">
+          <div class="offset-md-3 col-md-6 ">
             <div class="form">
               <div class="form-group">
                 <label for="guessField"><span class="font-weight-bold text-uppercase">Enter a guess: </span></label>
-                <input type = "text" id = "guessField" class = "guessField form-control">
+                <input type="text" id="guessField" class="guessField form-control">
               </div>
-              <div class= "d-flex justify-content-center">
-                <input type = "submit" value = "Submit Guess"
-                       class = "guessSubmit btn btn-primary mr-5" id = "submitguess">
-                <input type = "submit" value = "Hint"
-                       class = "guessHint btn btn-secondary" id = "hint">
+              <div class="d-flex justify-content-center">
+                <input type="submit" value="Submit Guess" class="guessSubmit btn btn-primary mr-5" id="submitguess">
+                <input type="submit" value="Hint" class="guessHint btn btn-secondary" id="hint">
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
+  </div>
 
-    <script type = "text/javascript">
+  <script type="text/javascript">
 
-        // random value generated
-        var y = Math.floor(Math.random() * 10 + 1);
+    // random value generated
+    var y = Math.floor(Math.random() * 10 + 1);
 
-        // counting the number of guesses
-        // made for correct Guess
-        var guess = 1;
-        var hint = 0;
+    // counting the number of guesses
+    // made for correct Guess
+    var guess = 1;
+    var hint = 0;
 
-        document.getElementById("submitguess").onclick = function(){
+    document.getElementById("submitguess").onclick = function () {
 
-       // number guessed by user
-       var x = document.getElementById("guessField").value;
+      // number guessed by user
+      var x = document.getElementById("guessField").value;
 
-       if(x == y)
-       {
-           alert("CONGRATULATIONS!!! YOU GUESSED IT RIGHT IN "
-                   + guess + " GUESSES AND USING " + hint + " HINTS!");
-       }
-       else
-       {
-           guess++;
-           alert("SORRY, TRY USING HINTS TO GUESS FASTER!")
-       }
+      if (x == y) {
+        alert("CONGRATULATIONS!!! YOU GUESSED IT RIGHT IN "
+          + guess + " GUESSES AND USING " + hint + " HINTS!");
+      }
+      else {
+        guess++;
+        alert("SORRY, TRY USING HINTS TO GUESS FASTER!")
+      }
     }
-        document.getElementById("hint").onclick = function(){
+    document.getElementById("hint").onclick = function () {
+      hint++;
 
-       // number guessed by user
-       var x = document.getElementById("guessField").value;
+      // number guessed by user
+      var x = document.getElementById("guessField").value;
 
-       if(x > y)
-       {
-            hint++;
-            alert("YOU ARE HIGHER THAN EXPECTED");
-       }
-       else
-       {
-           hint++;
-           alert("YOU ARE LOWER THAN EXPECTED")
-       }
+      if (x > y) {
+        alert("YOU ARE HIGHER THAN EXPECTED");
+      }
+      else if (x < y) {
+        alert("YOU ARE LOWER THAN EXPECTED")
+      }
+      else {
+        alert("Try submitting. (づ￣ 3￣)づ");
+      }
     }
-    </script>
-    </body>
+  </script>
+</body>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-  </body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+  integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+  integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+
 </html>
